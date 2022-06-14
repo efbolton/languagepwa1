@@ -186,7 +186,19 @@ function App() {
 
   return (
     // main div
-    <div className="flex flex-col justify-center items-center w-full h-screen">
+    // <div className="flex flex-col justify-center items-center w-full h-screen m-10">
+    <div className="flex flex-col justify-center items-center w-full h-full m-30">
+      {/* div w/ start game button */}
+      <div className="flex m-40">
+        <span
+          className="px-7 py-3 bg-blue-600 text-white font-medium text-sm leading-snug uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-xl transition duration-150 ease-in-out"
+          onClick={() => startGame()}
+        >
+          {gameButtonText}
+        </span>
+      </div>
+
+      {/* confetti */}
       <div style={{ display: confetti }}>
         {/* 
            https://www.npmjs.com/package/react-confetti
@@ -196,14 +208,11 @@ function App() {
         <Confetti width={width} height={height} />
       </div>
 
-      {/* div w/ start game button */}
-      <div className="flex">
-        <span
-          className="px-7 py-3 bg-blue-600 text-white font-medium text-sm leading-snug uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-xl transition duration-150 ease-in-out"
-          onClick={() => startGame()}
-        >
-          {gameButtonText}
-        </span>
+      {/* div containing result span */}
+      <div className="flex m-10">
+        <h1 className="font-medium leading-tight text-4xl mt-0 mb-2 text-blue-600">
+          {result}
+        </h1>
       </div>
 
       {/* div with cards (buttons) */}
@@ -247,12 +256,6 @@ function App() {
         >
           {CardDisplay5 ? "🔐" : gameItems[5].word}
         </button>
-      </div>
-      {/* div containing result span */}
-      <div>
-        <h1 className="font-medium leading-tight text-8xl mt-0 mb-2 text-blue-600">
-          {result}
-        </h1>
       </div>
     </div>
   );

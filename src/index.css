@@ -8,7 +8,7 @@
     } */
 
     button {
-        @apply bg-transparent text-cyan-300 text-4xl font-semibold border border-cyan-100 rounded-lg px-[115px] py-[115px] m-[35px] shadow-2xl
+        @apply bg-transparent text-cyan-300 text-4xl font-semibold border border-cyan-100 rounded-lg px-[35px] py-[35px] m-[35px] shadow-2xl
         /* https://stackoverflow.com/questions/67892366/why-it-says-the-hover-class-does-not-exist-if-hover-is-a-custom-class-ma */
         /* hover: bg-transparent hover:text-indigo-600 rounded-md */
     }
