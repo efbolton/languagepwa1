@@ -107,6 +107,16 @@ function App() {
       }
       ii++;
     }
+    console.log(1, data);
+
+    const s = data.sort(func);
+    data = s;
+
+    function func(a, b) {
+      return 0.5 - Math.random();
+    }
+
+    console.log(2, data);
   };
 
   if (pullDataStatus == 0) {
@@ -187,11 +197,14 @@ function App() {
   return (
     // main div
     // <div className="flex flex-col justify-center items-center w-full h-screen m-10">
-    <div className="flex flex-col justify-center items-center w-full h-full m-30">
+    <div className="flex flex-col justify-center items-center w-full h-full">
       {/* div w/ start game button */}
-      <div className="flex m-40">
+      <div className="flex mt-5">
         <span
-          className="px-7 py-3 bg-blue-600 text-white font-medium text-sm leading-snug uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-xl transition duration-150 ease-in-out"
+          className="px-7 py-3 bg-blue-600 text-white font-medium 
+          text-sm leading-snug uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg 
+          focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 
+          active:shadow-xl transition duration-150 ease-in-out"
           onClick={() => startGame()}
         >
           {gameButtonText}
@@ -205,11 +218,11 @@ function App() {
           https://reactjsexample.com/confetti-without-the-cleanup/ 
           <Confetti width={width} height={height} /> 
           */}
-        <Confetti width={width} height={height} />
+        <Confetti width={width} height="1900px" />
       </div>
 
       {/* div containing result span */}
-      <div className="flex m-10">
+      <div className="flex m-5">
         <h1 className="font-medium leading-tight text-4xl mt-0 mb-2 text-blue-600">
           {result}
         </h1>
@@ -218,44 +231,62 @@ function App() {
       {/* div with cards (buttons) */}
       <div
         // https://stackoverflow.com/questions/70477538/tailwind-not-working-when-using-variables-react-js
-        className={`flex flex-wrap justify-center items-center w-full h-full ${mainDivDisplay}`}
+        className={`flex flex-col ${mainDivDisplay}`}
       >
-        <button
-          disabled={cardDisabled}
-          onClick={() => handleClick(0, gameItems[0].word, gameItems[0].match)}
-        >
-          {CardDisplay0 ? "🔐" : gameItems[0].word}
-        </button>
-        <button
-          disabled={cardDisabled}
-          onClick={() => handleClick(1, gameItems[1].word, gameItems[1].match)}
-        >
-          {CardDisplay1 ? "🔐" : gameItems[1].word}
-        </button>
-        <button
-          disabled={cardDisabled}
-          onClick={() => handleClick(2, gameItems[2].word, gameItems[2].match)}
-        >
-          {CardDisplay2 ? "🔐" : gameItems[2].word}
-        </button>
-        <button
-          disabled={cardDisabled}
-          onClick={() => handleClick(3, gameItems[3].word, gameItems[3].match)}
-        >
-          {CardDisplay3 ? "🔐" : gameItems[3].word}
-        </button>
-        <button
-          disabled={cardDisabled}
-          onClick={() => handleClick(4, gameItems[4].word, gameItems[4].match)}
-        >
-          {CardDisplay4 ? "🔐" : gameItems[4].word}
-        </button>
-        <button
-          disabled={cardDisabled}
-          onClick={() => handleClick(5, gameItems[5].word, gameItems[5].match)}
-        >
-          {CardDisplay5 ? "🔐" : gameItems[5].word}
-        </button>
+        <div className="flex flex-row">
+          <button
+            disabled={cardDisabled}
+            onClick={() =>
+              handleClick(0, gameItems[0].word, gameItems[0].match)
+            }
+          >
+            {CardDisplay0 ? "🔐" : gameItems[0].word}
+          </button>
+          <button
+            disabled={cardDisabled}
+            onClick={() =>
+              handleClick(1, gameItems[1].word, gameItems[1].match)
+            }
+          >
+            {CardDisplay1 ? "🔐" : gameItems[1].word}
+          </button>
+        </div>
+        <div className="flex flex-row">
+          <button
+            disabled={cardDisabled}
+            onClick={() =>
+              handleClick(2, gameItems[2].word, gameItems[2].match)
+            }
+          >
+            {CardDisplay2 ? "🔐" : gameItems[2].word}
+          </button>
+          <button
+            disabled={cardDisabled}
+            onClick={() =>
+              handleClick(3, gameItems[3].word, gameItems[3].match)
+            }
+          >
+            {CardDisplay3 ? "🔐" : gameItems[3].word}
+          </button>
+        </div>
+        <div className="flex flex-row">
+          <button
+            disabled={cardDisabled}
+            onClick={() =>
+              handleClick(4, gameItems[4].word, gameItems[4].match)
+            }
+          >
+            {CardDisplay4 ? "🔐" : gameItems[4].word}
+          </button>
+          <button
+            disabled={cardDisabled}
+            onClick={() =>
+              handleClick(5, gameItems[5].word, gameItems[5].match)
+            }
+          >
+            {CardDisplay5 ? "🔐" : gameItems[5].word}
+          </button>
+        </div>
       </div>
     </div>
   );
