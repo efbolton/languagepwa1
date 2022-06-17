@@ -10,6 +10,6 @@
     button {
         @apply text-cyan-300
         /* text-4xl  */
-        font-semibold border border-cyan-100 rounded-lg px-[35px] py-[35px] m-[35px] shadow-2xl
+        font-semibold border border-cyan-100 text-4xl rounded-lg px-[35px] py-[35px] mx-[5px] m-[35px] shadow-2xl
     }
 }
